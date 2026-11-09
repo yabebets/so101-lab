@@ -1,0 +1,16 @@
+[project]
+name = "so101-lab"
+version = "0.1.0"
+description = "A learning log of physical AI (imitation learning, VLA, RL) on a Hiwonder SO-ARM101 with LeRobot"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.12"
+dependencies = [
+    # Hiwonder のサーボ（HX-30HM）に対応した LeRobot 0.5.1 のフォーク。記事と同じ版に固定する
+    "lerobot[hiwonder] @ git+https://github.com/Hiwonder-official/hiwonder-SoArm-101@a24998f7ba3c77ea445b48c92ad15c14a50e492a",
+    "mujoco>=3.2",
+    "matplotlib>=3.8",
+]
+
+[tool.uv]
+package = false

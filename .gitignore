@@ -1,0 +1,27 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# 学習済みの重み・データセット（Hugging Face Hub に置く）
+outputs/
+sim/data/
+runs/*/ckpt/
+runs/*/*.pt
+runs/*/*.safetensors
+
+# 動画（Zenn に載らないので GIF にするか Hub に置く）
+*.mp4
+*.mov
+
+# research-lab が作る手元の環境（絶対パス・ホスト名を含む）
+CLAUDE.md
+.claude/
+.mcp.json
+.night/
+.night.lock
+.gpu/
+
+# macOS
+.DS_Store
+._*

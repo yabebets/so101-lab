@@ -1,0 +1,42 @@
+# 研究プロジェクトの台帳（書式: ~/research-lab/skills/research-lab/references/ledger.md）
+project: so101-lab
+domain: robotics
+created: 2026-11-09
+stage: S1
+question: "SO-101 で模倣学習・VLM / VLA・強化学習・ロボティクス（フィジカル AI）を手を動かして学び、その過程のログを外部に公開する。論文を出すことは目的にしない。学ぶ順番は ROADMAP.md"
+hypotheses: []          # S2 で反証できる形に書く
+venue_target: "なし（学習ログの公開。記事は articles/ を Zenn と同期、索引は README.md、データとモデルは Hugging Face Hub）"
+gates:            # approved は人の発言を受けてだけ true にする
+  G1: {approved: true, pending: false, decided_at: "2026-11-09", note: "人の発言：このリポジトリは SO-101 で模倣学習・VLM・強化学習・ロボティクス・フィジカル AI を学び、そのログを外部に開示するためのもの"}
+  G2: {approved: false, pending: false, decided_at: null, note: "実験計画・評価プロトコル・GPU 予算の承認"}
+  G3: {approved: false, pending: false, decided_at: null, note: "論文で言う主張の確定"}
+  G4: {approved: false, pending: false, decided_at: null, note: "論文の投稿は目的外。公開の形（自前の分だけの新しいリポジトリ・Zenn 連携・HF Hub）は人が決めた（2026-11-09）。push・公開への切り替え・Zenn の published: true・HF へのアップロードは、そのつど人が頼んだときだけ"}
+budget:
+  gpu_usd: 0            # G2 で人が決める上限（USD）。これまでの学習は Colab A100 と手元の MPS
+  gpu_usd_spent: 0
+  llm_usd_per_night: 10
+  max_run_hours: 8
+protocol:               # G2 で固定。変えたくなったら blockers に書いて止まる
+  test_split: ""
+  metrics: []
+  seeds: 5
+  baselines: []
+  max_test_evals: 3
+  robot_trials_per_condition: 0
+tasks:
+  - {id: T1, title: "ROADMAP 1: 実機の 50 回版 ACT の成功率測定の残り 9 回（手順は notes/HANDOFF.md §2）。結果を runs/ に記録し、成功率は rl_stats.py の Wilson 区間つきで記事に書く", status: open, stage: S1, depends_on: []}
+  - {id: T2, title: "これまでの sim の実行（run 1・v2・temporal ensembling）を runs/ の書式に書き写す。評価ログは残っていないので出典は当時のメモと明記する", status: open, stage: S1, depends_on: []}
+  - {id: T3, title: "ROADMAP 3: sim の ACT を Colab A100 で 2 万ステップ以上、手首カメラを追加。eval_policy.py の結果を JSON で runs/ に保存するようにする", status: open, stage: S1, depends_on: []}
+  - {id: T4, title: "ROADMAP 2: MetaWorld の記事を書く（Colab のノートブックから）", status: open, stage: S1, depends_on: []}
+  - {id: T5, title: "公開: GitHub の yabebets/so101-lab（LeRobot の複製）を hiwonder-lerobot に改名して非公開のまま残し、新しい yabebets/so101-lab を作って push・公開に切り替え、Zenn と連携する（人の許可が要る）", status: blocked, stage: S1, depends_on: []}
+  - {id: T6, title: "HF Hub: 実機の学習用データセット（so101_block_place、50 回）と 50 回版 ACT、sim のデータセット（v2）を公開。上げる前に映像を見て、顔・画面の文字が写っていないか確かめる（人の許可が要る）", status: blocked, stage: S1, depends_on: []}
+blockers:
+  - {reason: "T5・T6 は外部への公開（GitHub の改名・新規作成・push・公開、HF へのアップロード）", needs: "人が実行を頼む"}
+log:
+  - {at: "2026-10-12", by: claude, what: "実機: テレオペ → 50 回収録 → ACT（Colab A100）→ 2026-10-13 06:46 に実機で初成功。成功率測定（10 回）は 1 回目（失敗）で中断。詳細は notes/HANDOFF.md と blog/2026-10-12-*"}
+  - {at: "2026-10-18", by: claude, what: "MetaWorld push-v3 で ACT を練習（Colab、20/20）。その後 sim/ に自前の SO-ARM101 MuJoCo 環境を作り始める"}
+  - {at: "2026-10-25", by: claude, what: "sim: スクリプト教師を 20/20 に修正（固定ジョーの衝突形状を 3 箱に、2 cm ブロック、タスク空間の直線降下、運搬高さ 7 cm）。ACT run 1 は 4/20、v2（100 eps・定速・DART）は 3000 step で最大 4/10。失敗は位置ずれ 1〜2.5 cm。2026-10-26 に人の指示で中断。blog/2026-10-25-* は run 2 未反映"}
+  - {at: "2026-11-09", by: claude, what: "~/hiwonder-SoArm-101 を ~/research-lab/projects/ に移し、research-lab の台帳（research.yaml・claims.yaml・plan.md・CLAUDE.md・ARIS スキル 47 個）を足した。.venv の絶対パスも書き換え済み。sim/ と blog/2026-10-25-* は未コミットのまま"}
+  - {at: "2026-11-09", by: claude, what: "人の指示で hiwonder-SoArm-101 → so101-lab に改名（フォルダと GitHub の yabebets/so101-lab）。人は GitHub を公開してよいと判断。公開の前に push 済みコミット c0ba956f の作者メールを noreply に直す必要あり（強制 push は人の許可待ち）"}
+  - {at: "2026-11-09", by: claude, what: "人がこのリポジトリの目的を「SO-101 でフィジカル AI を学び、ログを外部に開示する」と決めた（G1）。README を学習ログの入口に書き換え（上流の README は README_LeRobot.md）、ROADMAP.md・sim/so101/SOURCE.md を追加、sim/ と 10-25 の記事をコミット対象に。記事に学習 2 回目の結果を追記。手元の環境のファイル（CLAUDE.md・.claude/・.mcp.json）は gitignore"}
+  - {at: "2026-11-09", by: claude, what: "人が公開の形を決めた：LeRobot の複製をそのまま公開せず、自前の分（記事・sim・道具・台帳）だけの新しいリポジトリにする。記事は Zenn の形式（articles/・images/）、データとモデルは HF Hub。履歴をゼロから始めるので、旧リポジトリの個人メールの問題は起きない。LeRobot は Hiwonder のフォークの a24998f7 に固定した git 依存（uv）。記事の動画は GIF に"}
