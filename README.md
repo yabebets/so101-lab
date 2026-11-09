@@ -52,7 +52,18 @@ ROADMAP.md         学ぶ順番
 research.yaml      進み具合の台帳（タスク・作業の記録）
 ```
 
-収録したデータセットと学習済みのモデルは Hugging Face Hub の [yabebets](https://huggingface.co/yabebets) に置く予定です（準備中）。
+## データとモデル（Hugging Face Hub）
+
+| 名前 | 中身 |
+|---|---|
+| [yabebets/so101_block_place](https://huggingface.co/datasets/yabebets/so101_block_place) | 実機でテレオペしたデモ 50 回（LeRobot v3.0 形式） |
+| [yabebets/act_so101_block_place_50ep](https://huggingface.co/yabebets/act_so101_block_place_50ep) | 上のデータで学習した ACT |
+| [yabebets/so101_sim_pick_place_v2](https://huggingface.co/datasets/yabebets/so101_sim_pick_place_v2) | MuJoCo のスクリプト教師のデモ 100 回 |
+
+```python
+from lerobot.datasets.lerobot_dataset import LeRobotDataset
+ds = LeRobotDataset("yabebets/so101_block_place")
+```
 
 ## 出典とライセンス
 
