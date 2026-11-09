@@ -28,10 +28,11 @@ tasks:
   - {id: T2, title: "これまでの sim の実行（run 1・v2・temporal ensembling）を runs/ の書式に書き写す。評価ログは残っていないので出典は当時のメモと明記する", status: open, stage: S1, depends_on: []}
   - {id: T3, title: "ROADMAP 3: sim の ACT を Colab A100 で 2 万ステップ以上、手首カメラを追加。eval_policy.py の結果を JSON で runs/ に保存するようにする", status: open, stage: S1, depends_on: []}
   - {id: T4, title: "ROADMAP 2: MetaWorld の記事を書く（Colab のノートブックから）", status: open, stage: S1, depends_on: []}
-  - {id: T5, title: "公開: GitHub の yabebets/so101-lab（LeRobot の複製）を hiwonder-lerobot に改名して非公開のまま残し、新しい yabebets/so101-lab を作って push・公開に切り替え、Zenn と連携する（人の許可が要る）", status: blocked, stage: S1, depends_on: []}
+  - {id: T5, title: "公開: GitHub は済み（旧 so101-lab → hiwonder-lerobot に改名して非公開、新しい yabebets/so101-lab を公開）。残りは Zenn の GitHub 連携（人が Zenn の管理画面で行う）と、記事どうしのリンクを Zenn の URL に直すこと（Zenn のユーザー名が要る）", status: blocked, stage: S1, depends_on: []}
   - {id: T6, title: "HF Hub: 実機の学習用データセット（so101_block_place、50 回）と 50 回版 ACT、sim のデータセット（v2）を公開。上げる前に映像を見て、顔・画面の文字が写っていないか確かめる（人の許可が要る）", status: blocked, stage: S1, depends_on: []}
 blockers:
-  - {reason: "T5・T6 は外部への公開（GitHub の改名・新規作成・push・公開、HF へのアップロード）", needs: "人が実行を頼む"}
+  - {reason: "T5 の残り: Zenn の連携とユーザー名", needs: "人が Zenn でリポジトリを連携し、ユーザー名を教える"}
+  - {reason: "T6: HF Hub（yabebets）へのアップロードは外部への公開", needs: "人が実行を頼む"}
 log:
   - {at: "2026-10-12", by: claude, what: "実機: テレオペ → 50 回収録 → ACT（Colab A100）→ 2026-10-13 06:46 に実機で初成功。成功率測定（10 回）は 1 回目（失敗）で中断。詳細は notes/HANDOFF.md と blog/2026-10-12-*"}
   - {at: "2026-10-18", by: claude, what: "MetaWorld push-v3 で ACT を練習（Colab、20/20）。その後 sim/ に自前の SO-ARM101 MuJoCo 環境を作り始める"}
@@ -40,3 +41,4 @@ log:
   - {at: "2026-11-09", by: claude, what: "人の指示で hiwonder-SoArm-101 → so101-lab に改名（フォルダと GitHub の yabebets/so101-lab）。人は GitHub を公開してよいと判断。公開の前に push 済みコミット c0ba956f の作者メールを noreply に直す必要あり（強制 push は人の許可待ち）"}
   - {at: "2026-11-09", by: claude, what: "人がこのリポジトリの目的を「SO-101 でフィジカル AI を学び、ログを外部に開示する」と決めた（G1）。README を学習ログの入口に書き換え（上流の README は README_LeRobot.md）、ROADMAP.md・sim/so101/SOURCE.md を追加、sim/ と 10-25 の記事をコミット対象に。記事に学習 2 回目の結果を追記。手元の環境のファイル（CLAUDE.md・.claude/・.mcp.json）は gitignore"}
   - {at: "2026-11-09", by: claude, what: "人が公開の形を決めた：LeRobot の複製をそのまま公開せず、自前の分（記事・sim・道具・台帳）だけの新しいリポジトリにする。記事は Zenn の形式（articles/・images/）、データとモデルは HF Hub。履歴をゼロから始めるので、旧リポジトリの個人メールの問題は起きない。LeRobot は Hiwonder のフォークの a24998f7 に固定した git 依存（uv）。記事の動画は GIF に"}
+  - {at: "2026-11-09", by: claude, what: "人の許可を得て GitHub を整理した：旧 yabebets/so101-lab を hiwonder-lerobot に改名（非公開のまま）、新しい yabebets/so101-lab を作って push し、公開に切り替えた（コミット 2 つ、メールはどちらも noreply）。記事と図は CC BY 4.0、コードは Apache-2.0（人の決定）。HF のアカウントは yabebets"}
