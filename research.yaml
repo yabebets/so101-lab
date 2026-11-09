@@ -26,7 +26,7 @@ protocol:               # G2 で固定。変えたくなったら blockers に�
 tasks:
   - {id: T1, title: "ROADMAP 1: 実機の 50 回版 ACT の成功率測定の残り 9 回（手順は notes/HANDOFF.md §2）。結果を runs/ に記録し、成功率は rl_stats.py の Wilson 区間つきで記事に書く", status: open, stage: S1, depends_on: []}
   - {id: T2, title: "これまでの sim の実行（run 1・v2・temporal ensembling）を runs/ の書式に書き写す。評価ログは残っていないので出典は当時のメモと明記する", status: open, stage: S1, depends_on: []}
-  - {id: T3, title: "ROADMAP 3: sim の ACT を Colab A100 で 2 万ステップ以上、手首カメラを追加。eval_policy.py の結果を JSON で runs/ に保存するようにする", status: open, stage: S1, depends_on: []}
+  - {id: T3, title: "ROADMAP 2: sim の ACT を Colab A100 で 2 万ステップ以上、手首カメラを追加。eval_policy.py の結果を JSON で runs/ に保存するようにする", status: open, stage: S1, depends_on: []}
   - {id: T4, title: "ROADMAP 2: MetaWorld の記事を書く（Colab のノートブックから）", status: open, stage: S1, depends_on: []}
   - {id: T5, title: "公開: GitHub は済み（旧 so101-lab → hiwonder-lerobot に改名して非公開、新しい yabebets/so101-lab を公開）。残りは Zenn の GitHub 連携（人が Zenn の管理画面で行う）と、記事どうしのリンクを Zenn の URL に直すこと（Zenn のユーザー名が要る）", status: blocked, stage: S1, depends_on: []}
   - {id: T6, title: "HF Hub: 実機の学習用データセット（so101_block_place、50 回）と 50 回版 ACT、sim のデータセット（v2）を公開。上げる前に映像を見て、顔・画面の文字が写っていないか確かめる（人の許可が要る）", status: blocked, stage: S1, depends_on: []}
