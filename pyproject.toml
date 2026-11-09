@@ -3,7 +3,7 @@ name = "so101-lab"
 version = "0.1.0"
 description = "A learning log of physical AI (imitation learning, VLA, RL) on a Hiwonder SO-ARM101 with LeRobot"
 readme = "README.md"
-license = "Apache-2.0"
+license = "Apache-2.0 AND CC-BY-4.0"  # コードは Apache-2.0、articles/ と images/ は CC BY 4.0
 requires-python = ">=3.12"
 dependencies = [
     # Hiwonder のサーボ（HX-30HM）に対応した LeRobot 0.5.1 のフォーク。記事と同じ版に固定する

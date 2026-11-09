@@ -52,10 +52,11 @@ ROADMAP.md         学ぶ順番
 research.yaml      進み具合の台帳（タスク・作業の記録）
 ```
 
-収録したデータセットと学習済みのモデルは Hugging Face Hub に置く予定です（準備中）。
+収録したデータセットと学習済みのモデルは Hugging Face Hub の [yabebets](https://huggingface.co/yabebets) に置く予定です（準備中）。
 
 ## 出典とライセンス
 
-- このリポジトリのコードと文章は Apache License 2.0（[LICENSE](LICENSE)）です。
+- 記事と図（`articles/`・`images/`）は [CC BY 4.0](LICENSE-CC-BY-4.0)、コード（`sim/`・`tools/` など）は [Apache License 2.0](LICENSE) です。
+  記事や図を使うときは、出典として「so101-lab（yabebets）」とこのリポジトリへのリンクを書いてください。
 - LeRobot 本体は [Hugging Face の LeRobot](https://github.com/huggingface/lerobot) と、それを Hiwonder のサーボに対応させた [Hiwonder-official/hiwonder-SoArm-101](https://github.com/Hiwonder-official/hiwonder-SoArm-101) を依存として使っています（Apache License 2.0）。
 - `sim/so101/` のロボットモデルは [TheRobotStudio/SO-ARM100](https://github.com/TheRobotStudio/SO-ARM100) の SO-101 モデルをもとに手を加えたものです（Apache License 2.0、[sim/so101/SOURCE.md](sim/so101/SOURCE.md)）。
